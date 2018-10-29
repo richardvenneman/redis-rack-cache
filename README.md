@@ -23,8 +23,8 @@ In a Rails app, you can configure your `Rack::Cache` stores like this:
 module MyApplication
   class Application < Rails::Application
     config.action_dispatch.rack_cache = {
-      metastore: ::Rack::Cache::EntityStore::Redis.new('redis://localhost:6379/0/metastore', default_ttl: 10.days.to_i),
-      entity_store: ::Rack::Cache::MetaStore::Redis.new('redis://localhost:6380/0/entitystore', default_ttl: 120.days.to_i)
+      metastore: "redis://localhost:6379/1/metastore",
+      entitystore: "redis://localhost:6379/1/entitystore"
     }
   end
 end
